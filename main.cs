@@ -5,35 +5,40 @@ class MainClass
 {
   public static void Main (string[] args) 
   {
+    Veiculo u = new Veiculo("Uno", 13);
+    Veiculo j = new Veiculo("Jetta", 8);
+    Veiculo p = new Veiculo("Palio", 12);
+    Veiculo f = new Veiculo("Fusca", 18);
+
     List<string> carros = new List<string>();
     List<double> consumo = new List<double>();
     
-    carros.Add("Uno");
-    consumo.Add(13);
+    carros.Add(u.ModeloCarro);
+    consumo.Add(u.Consumo);
 
-    carros.Add("Jetta");
-    consumo.Add(8);
+    carros.Add(j.ModeloCarro);
+    consumo.Add(j.Consumo);
 
-    carros.Add("Palio");
-    consumo.Add(12);
+    carros.Add(p.ModeloCarro);
+    consumo.Add(p.Consumo);
 
-    carros.Add("Fusca");
-    consumo.Add(18);
+    carros.Add(f.ModeloCarro);
+    consumo.Add(f.Consumo);
 
-    string carroEconomico = carros[0];
-    double consumoEconomico = consumo[0];
+    string maisEconomico = carros[0];
+    double registroConsumo = consumo[0];
 
     for( int i = 1; i < carros.Count ; i++ )
     {
-      if( consumo[i] < consumoEconomico )
+      if( consumo[i] > registroConsumo )
       {
-        carroEconomico = carros[i];
-        consumoEconomico = consumo[i];
+        maisEconomico = carros[i];
+        registroConsumo = consumo[i];
       }
     }
 
-    Console.WriteLine("Carro mais Economico: " + carroEconomico );
-    Console.WriteLine("Consumo do Carro Economico: " + consumoEconomico );
+    Console.WriteLine("Carro com maior autonomia: " + maisEconomico );
+    Console.WriteLine("Consumo registrado: " + registroConsumo );
 
     for( int i = 0; i < carros.Count ; i++ )
     {
